@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio</title>
+</head>
+
+<body>
+    <center>
+        <h1>Radio</h1>
+        <form action="{% url 'select_multiple' %}" method="POST">
+            {% csrf_token %} {% for t in topics %}
+            <input type="radio" name="topic" id="topic" value="{{t}}">
+            <label for="topic">{{t.topic_name}}</label> {% endfor %}
+            <br><br>
+            <button type="submit">Retrive</button>
+        </form>
+    </center>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Multiple</title>
+</head>
+
+<body>
+    <center>
+        <h1>Select Multiple</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="topic">topic_name</label>
+            <select name="topic" id="topic" multiple>
+                {% for t in topics %}
+                <option value="{{t}}">{{t.topic_name}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <button type="submit">Retrive</button>
+        </form>
+    </center>
+</body>
+
+</html>
